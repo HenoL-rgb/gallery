@@ -1,4 +1,4 @@
-import {Photo} from '@entities/PostCard';
+import {Photo} from '@entities/Post';
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
 type State = {
@@ -10,7 +10,7 @@ const initialState: State = {
   posts: [],
 };
 
-export const gallerySlice = createSlice({
+const gallerySlice = createSlice({
   name: 'gallery',
   initialState,
   reducers: {
@@ -21,3 +21,4 @@ export const gallerySlice = createSlice({
 });
 
 export const {actions: galleryActions} = gallerySlice;
+export default gallerySlice.reducer;

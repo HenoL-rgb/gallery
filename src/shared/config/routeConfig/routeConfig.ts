@@ -11,5 +11,7 @@ export type Route = {
 
 export type MainRouterParams = {
     [MainRoutes.HOME]: undefined;
-    [MainRoutes.POST]: undefined;
+    [MainRoutes.POST]: {
+      id: string;
+    };
 }

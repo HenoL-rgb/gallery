@@ -1,3 +1,3 @@
-import {Photo} from '@entities/PostCard';
+import {Photo} from '@entities/Post';
 
 export interface GalleryPostCardProps extends Photo {}

@@ -1,7 +1,7 @@
 import {AxiosResponse} from 'axios';
 
 import {api} from '@shared/api';
-import {Photo} from '@entities/PostCard';
+import {Photo} from '@entities/Post';
 
 type RequestProps = {
   page: number;

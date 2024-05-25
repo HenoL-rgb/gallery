@@ -69,3 +69,8 @@ export interface Photo {
   urls: Urls;
   links: Links;
 }
+
+export interface PostCardProps extends Photo {
+  small?: boolean;
+  big?: boolean;
+}

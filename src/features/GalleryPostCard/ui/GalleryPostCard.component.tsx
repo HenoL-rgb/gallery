@@ -1,54 +1,29 @@
-import {PostCard} from '@entities/PostCard';
+import { PostCard } from '@entities/Post';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import {
+    MainRouterParams,
+    MainRoutes,
+} from '@shared/config/routeConfig/routeConfig';
 import React from 'react';
-import {Gesture, GestureDetector} from 'react-native-gesture-handler';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
-import {GalleryPostCardProps} from '../model/types/types';
-import {Dimensions} from 'react-native';
+import { Pressable } from 'react-native';
+import { GalleryPostCardProps } from '../model/types/types';
+import { styles } from './styles';
 
-const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get('window');
+
+type Navigation = NavigationProp<MainRouterParams>;
 
 export default function GalleryPostCard(props: GalleryPostCardProps) {
-  const scale = useSharedValue(1);
-  const focalX = useSharedValue(0);
-  const focalY = useSharedValue(0);
+  const navigation = useNavigation<Navigation>();
 
-  const pinchHandler = Gesture.Pinch()
-    .onStart(event => {
-      focalX.value = event.focalX;
-      focalY.value = event.focalY;
-    })
-    .onUpdate(event => {
-      scale.value = event.scale;
-    })
-    .onEnd(() => {
-      scale.value = withTiming(1);
-    });
-
-  const animatedImageStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {translateX: focalX.value},
-        {translateY: focalY.value},
-        {translateX: -SCREEN_WIDTH / 2},
-        {translateY: -SCREEN_HEIGHT / 2},
-        {scale: scale.value},
-        {translateX: -focalX.value},
-        {translateY: -focalY.value},
-        {translateX: SCREEN_WIDTH / 2},
-        {translateY: SCREEN_HEIGHT / 2},
-      ],
-    };
-  });
+  function handleNavigate() {
+    navigation.navigate(MainRoutes.POST, {id: props.id});
+  }
 
   return (
-    <GestureDetector gesture={pinchHandler}>
-      <Animated.View style={[{flex: 1}, animatedImageStyle]}>
-        <PostCard {...props} />
-      </Animated.View>
-    </GestureDetector>
+    <Pressable
+      style={({pressed}) => [styles.wrapper, {opacity: pressed ? 0.6 : 1}]}
+      onPress={handleNavigate}>
+      <PostCard {...props} />
+    </Pressable>
   );
 }
