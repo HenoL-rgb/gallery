@@ -1,4 +1,7 @@
 {
   "name": "wespace",
-  "displayName": "wespace"
+  "displayName": "wespace",
+  "experiments": {
+    "tsconfigPaths": true
+  }
 }

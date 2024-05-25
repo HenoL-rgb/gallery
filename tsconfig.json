@@ -1,3 +1,16 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@screens/*": ["src/screens/*"],
+      "@app/*": ["src/app/*"],
+      "@entities/*": ["src/entities/*"],
+      "@features/*": ["src/features/*"],
+      "@widgets/*": ["src/widgets/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "../**/*"],
+  "exclude": ["node_modules", "babel.config.js"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }
