@@ -11,7 +11,7 @@ export default function PostCard({urls, blur_hash}: PostCardProps) {
       <Image
         placeholder={{blurhash: blur_hash}}
         source={{uri: urls.regular}}
-        contentFit="fill"
+        contentFit="cover"
         style={styles.image}
       />
     </View>

@@ -68,9 +68,11 @@ export interface Photo {
   current_user_collections: Collection[];
   urls: Urls;
   links: Links;
+  tags: {title: string; type: string}[];
 }
 
-export interface PostCardProps extends Photo {
-  small?: boolean;
-  big?: boolean;
+export interface PostCardProps {
+  blur_hash: string;
+  id: string;
+  urls: Urls;
 }

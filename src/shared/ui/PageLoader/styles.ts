@@ -4,13 +4,12 @@ import {StyleSheet} from 'react-native';
 export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
-      height: 60,
-      justifyContent: 'center',
-      alignItems: 'flex-start',
-      paddingHorizontal: 10,
+      flex: 1,
       backgroundColor: theme.colors.background,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    backButton: {
-      padding: 5,
+    indicator: {
+      color: theme.colors.primary,
     },
   });

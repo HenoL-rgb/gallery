@@ -7,6 +7,7 @@ import {
 } from '@shared/config/routeConfig/routeConfig';
 import {HomeScreen} from '@screens/HomeScreen';
 import PostScreen from '@screens/PostScreen/ui/PostScreen.screen';
+import { PostHeader } from '@shared/ui/PostHeader';
 
 const Stack = createStackNavigator<MainRouterParams>();
 
@@ -15,10 +16,13 @@ export default function MainRouter() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        ...TransitionPresets.ScaleFromCenterAndroid,
+        ...TransitionPresets.FadeFromBottomAndroid,
       }}>
       <Stack.Screen name={MainRoutes.HOME} component={HomeScreen} />
-      <Stack.Screen name={MainRoutes.POST} component={PostScreen} />
+      <Stack.Screen name={MainRoutes.POST} component={PostScreen} options={{
+        header: () => <PostHeader />,
+        headerShown: true,
+      }} />
     </Stack.Navigator>
   );
 }

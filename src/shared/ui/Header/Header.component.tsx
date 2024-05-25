@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.text}>CoffeeWake</Text>
+      <Text style={styles.text}>Gallery</Text>
     </View>
   );
 }

@@ -16,7 +16,7 @@ export const data = {
   color: '#262640',
   created_at: '2024-05-24T15:51:05Z',
   current_user_collections: [],
-  description: null,
+  description: 'a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs',
   downloads: 415,
   exif: {
     aperture: '2.8',
@@ -30,7 +30,7 @@ export const data = {
   height: 4000,
   id: '1eKSPSELYA4',
   liked_by_user: false,
-  likes: 5,
+  likes: 5000,
   links: {
     download:
       'https://unsplash.com/photos/1eKSPSELYA4/download?ixid=M3w2MTU4NTV8MHwxfGFsbHx8fHx8fHx8fDE3MTY2NTA5MDd8',
@@ -70,11 +70,9 @@ export const data = {
     {title: 'human', type: 'search'},
     {title: 'man', type: 'search'},
     {title: 'male', type: 'search'},
-    {source: [Object], title: 'person', type: 'landing_page'},
     {title: 'adult', type: 'search'},
     {title: 'shoe', type: 'search'},
     {title: 'lamp', type: 'search'},
-    {source: [Object], title: 'city', type: 'landing_page'},
     {title: 'town', type: 'search'},
   ],
   tags_preview: [

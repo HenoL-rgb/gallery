@@ -19,7 +19,7 @@ export const ThemeContext = React.createContext({
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const [theme, setTheme] = useState<Themes>(Themes.LIGHT);
+  const [theme, setTheme] = useState<Themes>(Themes.DARK);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,

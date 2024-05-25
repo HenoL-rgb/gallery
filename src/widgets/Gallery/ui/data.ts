@@ -113,7 +113,7 @@ export const data = [
     height: 3120,
     color: '#c07326',
     blur_hash: 'LNL:DKLgSPRj+tW;TJaz0fD*agbv',
-    description: null,
+    description: 'a close up of the corner of a building a close up of the corner of a building a close up of the corner of a building a close up of the corner of a building',
     alt_description: 'a close up of the corner of a building',
     breadcrumbs: [],
     urls: {

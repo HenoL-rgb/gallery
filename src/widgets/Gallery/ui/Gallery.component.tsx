@@ -1,24 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {FlatList} from 'react-native';
-import {data} from './data';
-import { useAppSelector } from '@app/providers/StoreProvider';
-import { RootState } from '@app/providers/StoreProvider/config/store';
-import { GalleryPostCard } from '@features/GalleryPostCard';
+import {GalleryPostCard} from '@features/GalleryPostCard';
+import React from 'react';
+import {ActivityIndicator, FlatList} from 'react-native';
+import {RefreshControl} from 'react-native-gesture-handler';
+import {usePosts} from '../model/lib/usePosts.hook';
+import {ErrorPage} from '@shared/ui/ErrorPage';
 
 export default function Gallery() {
-  const posts = useAppSelector((state: RootState) => state.gallerySlice.posts);
-  const [page, setPage] = useState<number>(1);
-  const hasMore = useRef<boolean>(true);
+  const {posts, fetchMore, refetch, loading, refreshing, error} = usePosts();
 
-  useEffect(() => {}, [page]);
+  if (error) {
+    return <ErrorPage error={error} refetch={refetch} loading={refreshing} />;
+  }
 
   return (
     <FlatList
-      contentContainerStyle={{gap: 2}}
+      contentContainerStyle={{gap: 2, paddingBottom: 70}}
       columnWrapperStyle={{gap: 2}}
       numColumns={3}
-      data={data.slice(0, 9)}
+      data={posts}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={refetch} />
+      }
+      onEndReachedThreshold={1}
+      onEndReached={fetchMore}
       renderItem={({item}) => <GalleryPostCard {...item} />}
+      ListFooterComponent={
+        loading ? (
+          <ActivityIndicator size={24} color="white" style={{marginTop: 10}} />
+        ) : null
+      }
       keyExtractor={item => item.id}
     />
   );

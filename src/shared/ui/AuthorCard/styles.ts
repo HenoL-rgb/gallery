@@ -4,13 +4,20 @@ import {StyleSheet} from 'react-native';
 export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
-      height: 60,
-      justifyContent: 'center',
+      paddingHorizontal: 15,
+      paddingVertical: 5,
+      columnGap: 5,
+      flexDirection: 'row',
       alignItems: 'flex-start',
-      paddingHorizontal: 10,
+    },
+    image: {
+      width: 30,
+      height: 30,
+      borderRadius: 30,
       backgroundColor: theme.colors.background,
     },
-    backButton: {
-      padding: 5,
+    text: {
+      fontSize: 16,
+      color: theme.colors.text,
     },
   });
