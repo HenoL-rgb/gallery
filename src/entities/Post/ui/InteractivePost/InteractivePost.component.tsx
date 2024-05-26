@@ -10,8 +10,6 @@ import Animated, {
 import {Photo} from '../../model/types/types';
 import {styles} from './styles';
 
-const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get('window');
-
 export default function InteractivePost({blur_hash, urls}: Photo) {
   const scale = useSharedValue(1);
   const focalX = useSharedValue(0);
@@ -40,14 +38,7 @@ export default function InteractivePost({blur_hash, urls}: Photo) {
 
   const animatedImageStyle = useAnimatedStyle(() => {
     return {
-      transform: [
-        // {translateX: SCREEN_WIDTH / 2},
-        // {translateY: SCREEN_HEIGHT / 2},
-        {scale: scale.value},
-
-        // {translateX: -SCREEN_WIDTH / 2},
-        // {translateY: -SCREEN_HEIGHT / 2},
-      ],
+      transform: [{scale: scale.value}],
       transformOrigin: [startFocalX.value, startFocalY.value, 0],
     };
   });

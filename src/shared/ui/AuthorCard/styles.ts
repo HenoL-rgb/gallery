@@ -5,10 +5,10 @@ export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
       paddingHorizontal: 15,
-      paddingVertical: 5,
-      columnGap: 5,
+      paddingVertical: 7,
+      columnGap: 8,
       flexDirection: 'row',
-      alignItems: 'flex-start',
+      alignItems: 'center',
     },
     image: {
       width: 30,
@@ -17,7 +17,8 @@ export const createStyles = (theme: Theme) =>
       backgroundColor: theme.colors.background,
     },
     text: {
-      fontSize: 16,
+      fontSize: 14,
       color: theme.colors.text,
+      fontWeight: '700'
     },
   });

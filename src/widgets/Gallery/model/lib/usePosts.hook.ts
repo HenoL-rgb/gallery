@@ -1,11 +1,11 @@
-import {useAppDispatch, useAppSelector} from '@app/providers/StoreProvider';
-import {RootState} from '@app/providers/StoreProvider/config/store';
-import {useState, useRef, useEffect} from 'react';
-import {getPostsRequest} from '../services/getPosts.request';
-import {galleryActions} from '../slice/gallery.slice';
-import {AxiosError} from 'axios';
+import { useAppDispatch, useAppSelector } from '@app/providers/StoreProvider';
+import { RootState } from '@app/providers/StoreProvider/config/store';
+import { AxiosError } from 'axios';
+import { useEffect } from 'react';
+import { getPostsRequest } from '../services/getPosts.request';
+import { galleryActions } from '../slice/gallery.slice';
+import { PER_PAGE } from './constants';
 
-const PER_PAGE = 30;
 
 export const usePosts = () => {
   const posts = useAppSelector((state: RootState) => state.gallerySlice.posts);
@@ -23,12 +23,11 @@ export const usePosts = () => {
   );
 
   useEffect(() => {
-    console.log('USE EFFECT', page);
     fetchPosts(page);
   }, [page]);
 
   async function fetchPosts(page: number, invalidate?: boolean) {
-    if (!hasMore || isLoading || isRefreshing) return;
+    if (!hasMore) return;
 
     try {
       if (invalidate) {
@@ -43,7 +42,6 @@ export const usePosts = () => {
       });
 
       const mappedPosts = newPosts.data.map(post => {
-        console.log(post.id);
         return {
           urls: post.urls,
           blur_hash: post.blur_hash,
@@ -52,6 +50,7 @@ export const usePosts = () => {
       });
 
       if (page === 1) {
+        dispatch(galleryActions.setFullPosts(newPosts.data.slice(0, 10)))
         dispatch(galleryActions.setPosts(mappedPosts));
         return;
       }
@@ -70,7 +69,7 @@ export const usePosts = () => {
   }
 
   function fetchMore() {
-    if (posts.length === 0) {
+    if (posts.length === 0 || isLoading) {
       return;
     }
     dispatch(galleryActions.fetchMore());

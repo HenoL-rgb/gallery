@@ -1,14 +1,14 @@
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 import {Photo} from '../types/types';
-import { data } from '@widgets/Post/ui/data';
 
 type State = {
   post?: Photo;
   error?: string;
+  likes: string[];
 };
 
 const initialState: State = {
-    post: data
+  likes: [],
 };
 
 const postSlice = createSlice({
@@ -16,11 +16,34 @@ const postSlice = createSlice({
   initialState,
   reducers: {
     setPost(state, action: PayloadAction<Photo>) {
-      state.post = action.payload;
+      const post = action.payload;
+
+      if (state.likes.includes(action.payload.id)) {
+        post.liked_by_user = true;
+        post.likes += 1;
+      }
+
+      state.post = post;
+
       state.error = undefined;
     },
     setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
+    },
+    setLike(state, action: PayloadAction<boolean>) {
+      if (!state.post) return;
+
+      if (action.payload) {
+        state.post.liked_by_user = true;
+        state.post.likes += 1;
+        if (!state.likes.includes(state.post.id)) {
+          state.likes.push(state.post.id);
+        }
+      } else {
+        state.post.liked_by_user = false;
+        state.post.likes -= 1;
+        state.likes = state.likes.filter(postId => postId !== state.post?.id);
+      }
     },
   },
 });

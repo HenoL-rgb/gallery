@@ -5,7 +5,6 @@ export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
       paddingHorizontal: 15,
-      paddingVertical: 5,
       rowGap: 10,
     },
     text: {

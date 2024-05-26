@@ -10,6 +10,6 @@ export const createStyles = (theme: Theme) =>
       alignItems: 'center',
     },
     indicator: {
-      color: theme.colors.primary,
+      color: theme.colors.text,
     },
   });

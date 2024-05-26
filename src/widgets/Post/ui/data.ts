@@ -16,7 +16,7 @@ export const data = {
   color: '#262640',
   created_at: '2024-05-24T15:51:05Z',
   current_user_collections: [],
-  description: 'a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs',
+  description: 'a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs, a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signsa crowded city street at night with neon signs a crowded city street at night with neon signs a crowded city street at night with neon signs',
   downloads: 415,
   exif: {
     aperture: '2.8',

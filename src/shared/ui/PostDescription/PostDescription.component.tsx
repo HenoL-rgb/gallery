@@ -2,12 +2,14 @@ import {View, Text, LayoutChangeEvent} from 'react-native';
 import React, {useRef, useState} from 'react';
 import {useTheme} from '@react-navigation/native';
 import {createStyles} from './styles';
+import { format, parseISO } from 'date-fns';
 
 interface PostDescriptionProps {
   username: string;
   tags: {title: string; type: string}[];
   desc: string;
   likes: number;
+  createdAt: string;
 }
 
 export default function PostDescription({
@@ -15,6 +17,7 @@ export default function PostDescription({
   tags,
   desc,
   likes,
+  createdAt,
 }: PostDescriptionProps) {
   const theme = useTheme();
   const styles = createStyles(theme);
@@ -38,6 +41,7 @@ export default function PostDescription({
           )}
         </Text>
       </View>
+      <Text>{format(parseISO(createdAt), 'MMM d')}</Text>
     </View>
   );
 }

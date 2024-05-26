@@ -69,6 +69,8 @@ export interface Photo {
   urls: Urls;
   links: Links;
   tags: {title: string; type: string}[];
+  downloads: number;
+  views: number;
 }
 
 export interface PostCardProps {

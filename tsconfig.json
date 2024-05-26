@@ -10,7 +10,7 @@
       "@widgets/*": ["src/widgets/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "../**/*"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "../**/*", "declarations.d.ts"],
   "exclude": ["node_modules", "babel.config.js"],
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

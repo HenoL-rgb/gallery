@@ -1,9 +1,10 @@
-import {Photo} from '@entities/Post';
-import {PostCardProps} from '@entities/Post';
-import {PayloadAction, createSlice} from '@reduxjs/toolkit';
+import { Photo, PostCardProps } from '@entities/Post';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PER_PAGE } from '../lib/constants';
 
 type State = {
   posts: PostCardProps[];
+  fullPosts: Photo[];
   loading: boolean;
   hasMore: boolean;
   page: number;
@@ -13,6 +14,7 @@ type State = {
 
 const initialState: State = {
   posts: [],
+  fullPosts: [],
   page: 1,
   loading: false,
   refreshing: false,
@@ -24,11 +26,23 @@ const gallerySlice = createSlice({
   initialState,
   reducers: {
     setPosts(state, action: PayloadAction<PostCardProps[]>) {
-      state.posts = action.payload;
 
-    console.log('STATE', state.posts.length)
+      const uniqueArray: PostCardProps[] = action.payload.reduce(
+        (acc: PostCardProps[], currentValue) => {
+          const existingItem: PostCardProps | undefined = acc.find(
+            item => item.id === currentValue.id,
+          );
+          if (!existingItem) {
+            acc.push(currentValue);
+          }
+          return acc;
+        },
+        [],
+      );
 
-      if (action.payload.length < 24) {
+      state.posts = uniqueArray;
+
+      if (action.payload.length < PER_PAGE) {
         state.hasMore = false;
       }
       state.loading = false;
@@ -49,16 +63,20 @@ const gallerySlice = createSlice({
     },
     setRefreshing(state, action: PayloadAction<boolean>) {
       state.refreshing = action.payload;
+      state.loading = false;
       state.error = undefined;
     },
     fetchMore(state) {
       if (state.hasMore && !state.loading) {
-        state.page += 1;
+        state.page = state.page + 1;
         state.loading = true;
       }
     },
     setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
+    },
+    setFullPosts(state, action: PayloadAction<Photo[]>) {
+      state.fullPosts = action.payload;
     }
   },
 });

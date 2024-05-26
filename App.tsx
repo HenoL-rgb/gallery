@@ -7,6 +7,7 @@ import {RouterProvider} from '@app/providers/RouterProvider';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {StoreProvider} from '@app/providers/StoreProvider';
 import {DarkTheme, DefaultTheme} from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export enum Themes {
   LIGHT = 'light',
@@ -32,21 +33,19 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <ThemeContext.Provider value={themeData}>
-      <RouterProvider>
+    <SafeAreaProvider>
+      <ThemeContext.Provider value={themeData}>
         <StoreProvider>
-          <GestureHandlerRootView style={{flex: 1}}>
-            <SafeAreaView style={backgroundStyle}>
-              <StatusBar
-                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                backgroundColor={backgroundStyle.backgroundColor}
-              />
-              <MainApp />
-            </SafeAreaView>
-          </GestureHandlerRootView>
+          <RouterProvider>
+            <GestureHandlerRootView style={{flex: 1}}>
+              <SafeAreaView style={{flex: 1}}>
+                <MainApp />
+              </SafeAreaView>
+            </GestureHandlerRootView>
+          </RouterProvider>
         </StoreProvider>
-      </RouterProvider>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </SafeAreaProvider>
   );
 }
 

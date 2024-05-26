@@ -19,10 +19,7 @@ export default function MainRouter() {
         ...TransitionPresets.FadeFromBottomAndroid,
       }}>
       <Stack.Screen name={MainRoutes.HOME} component={HomeScreen} />
-      <Stack.Screen name={MainRoutes.POST} component={PostScreen} options={{
-        header: () => <PostHeader />,
-        headerShown: true,
-      }} />
+      <Stack.Screen name={MainRoutes.POST} component={PostScreen} />
     </Stack.Navigator>
   );
 }
