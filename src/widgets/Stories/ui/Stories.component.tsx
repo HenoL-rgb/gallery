@@ -25,6 +25,7 @@ export default function Stories() {
     visible: false,
   });
   const stories = useAppSelector(state => state.gallerySlice.fullPosts);
+  const error = useAppSelector(state => state.gallerySlice.error);
 
   const [storyIndex, setStoryIndex] = useState<number>(0);
   const [viewedStories, setViewedStories] = useState<string[]>([]);
@@ -93,6 +94,10 @@ export default function Stories() {
     ),
     [storyIndex],
   );
+
+  if(error) {
+    return null;
+  }
 
   return (
     <View style={styles.wrapper}>
