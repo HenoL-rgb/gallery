@@ -14,7 +14,7 @@ export const createStyles = (theme: Theme) =>
       color: theme.colors.text,
     },
     refetchText: {
-      color: theme.colors.background,
+      color: theme.colors.text,
     },
     refetch: {
       width: 150,
