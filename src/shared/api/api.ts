@@ -7,7 +7,7 @@ const axios = Axios.create({
 axios.interceptors.request.use(
   config => {
     config.params = {
-      ...config.params, 
+      ...config.params,
       client_id: process.env.UNSPLASH_TOKEN,
     };
     return config;

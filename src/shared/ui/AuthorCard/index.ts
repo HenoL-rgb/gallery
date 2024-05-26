@@ -1,2 +1,1 @@
-export { default as AuthorCard } from './AuthorCard.component';
-
+export {default as AuthorCard} from './AuthorCard.component';

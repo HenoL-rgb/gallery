@@ -9,6 +9,6 @@ export const styles = StyleSheet.create({
   heartWrapper: {
     position: 'absolute',
     alignSelf: 'center',
-    zIndex: 9999
+    zIndex: 9999,
   },
 });

@@ -1,15 +1,11 @@
-import { useAppDispatch } from '@app/providers/StoreProvider';
-import { InteractivePhoto, Photo, postActions } from '@entities/Post';
-import { useTheme } from '@react-navigation/native';
-import { Heart } from '@shared/assets/icons';
-import React, { useState } from 'react';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Animated, {
-  BounceIn,
-  ZoomOut,
-  runOnJS
-} from 'react-native-reanimated';
-import { styles } from './styles';
+import {useAppDispatch} from '@app/providers/StoreProvider';
+import {InteractivePhoto, Photo, postActions} from '@entities/Post';
+import {useTheme} from '@react-navigation/native';
+import {Heart} from '@shared/assets/icons';
+import React, {useState} from 'react';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import Animated, {BounceIn, ZoomOut, runOnJS} from 'react-native-reanimated';
+import {styles} from './styles';
 
 export default function DoubleTapPhoto(props: Photo) {
   const [doubleTapped, setDoubleTapped] = useState<boolean>(false);

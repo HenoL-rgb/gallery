@@ -16,11 +16,11 @@ export const createStyles = (width: DimensionValue) =>
       left: 10,
     },
     close: {
-        padding: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        right: 10,
-        top: 25,
-    }
+      padding: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+      right: 10,
+      top: 25,
+    },
   });

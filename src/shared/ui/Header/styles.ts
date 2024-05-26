@@ -16,6 +16,6 @@ export const createStyles = (theme: Theme) =>
     switcher: {
       position: 'absolute',
       alignSelf: 'flex-end',
-      right: 20
+      right: 20,
     },
   });

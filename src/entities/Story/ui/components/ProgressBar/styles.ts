@@ -1,4 +1,4 @@
-import { CommonColors } from '@shared/lib/constants';
+import {CommonColors} from '@shared/lib/constants';
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({

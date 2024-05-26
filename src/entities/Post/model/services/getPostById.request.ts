@@ -1,7 +1,7 @@
 import {AxiosResponse} from 'axios';
 
 import {api} from '@shared/api';
-import { Photo } from '../types/types';
+import {Photo} from '../types/types';
 
 type RequestProps = {
   id: string;

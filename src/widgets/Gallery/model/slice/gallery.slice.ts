@@ -1,6 +1,6 @@
-import { Photo, PostCardProps } from '@entities/Post';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { PER_PAGE } from '../lib/constants';
+import {Photo, PostCardProps} from '@entities/Post';
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
+import {PER_PAGE} from '../lib/constants';
 
 type State = {
   posts: PostCardProps[];
@@ -26,7 +26,6 @@ const gallerySlice = createSlice({
   initialState,
   reducers: {
     setPosts(state, action: PayloadAction<PostCardProps[]>) {
-
       const uniqueArray: PostCardProps[] = action.payload.reduce(
         (acc: PostCardProps[], currentValue) => {
           const existingItem: PostCardProps | undefined = acc.find(
@@ -77,7 +76,7 @@ const gallerySlice = createSlice({
     },
     setFullPosts(state, action: PayloadAction<Photo[]>) {
       state.fullPosts = action.payload;
-    }
+    },
   },
 });
 

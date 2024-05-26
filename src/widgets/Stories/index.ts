@@ -1,2 +1,1 @@
-export { default as Stories } from './ui/Stories.component';
-
+export {default as Stories} from './ui/Stories.component';

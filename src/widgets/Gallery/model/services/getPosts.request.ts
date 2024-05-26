@@ -11,8 +11,8 @@ type RequestProps = {
 
 type AdjustedHeaders = {
   'Cache-Control'?: string;
-  'Pragma'?: string;
-  'Expires'?: string;
+  Pragma?: string;
+  Expires?: string;
 };
 
 export const getPostsRequest = async ({

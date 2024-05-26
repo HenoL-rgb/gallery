@@ -1,4 +1,4 @@
-import { Theme } from '@react-navigation/native';
+import {Theme} from '@react-navigation/native';
 import {CommonColors} from '@shared/lib/constants';
 import {StyleSheet} from 'react-native';
 
@@ -39,6 +39,8 @@ export const createStyles = (viewed: boolean, theme: Theme) =>
       height: 70,
       borderWidth: 3,
       borderRadius: 70,
-      borderColor: viewed ? CommonColors.whiteTransparent : theme.colors.primary
+      borderColor: viewed
+        ? CommonColors.whiteTransparent
+        : theme.colors.primary,
     },
   });

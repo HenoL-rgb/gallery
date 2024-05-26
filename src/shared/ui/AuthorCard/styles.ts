@@ -19,6 +19,6 @@ export const createStyles = (theme: Theme) =>
     text: {
       fontSize: 14,
       color: theme.colors.text,
-      fontWeight: '700'
+      fontWeight: '700',
     },
   });

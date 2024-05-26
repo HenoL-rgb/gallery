@@ -4,7 +4,10 @@ import {createStyles} from './styles';
 import {useTheme} from '@react-navigation/native';
 import {ThemeContext, Themes} from 'App';
 import {Moon, Sun} from '@shared/assets/icons';
-import Animated, {RotateInDownLeft, RotateInUpRight} from 'react-native-reanimated';
+import Animated, {
+  RotateInDownLeft,
+  RotateInUpRight,
+} from 'react-native-reanimated';
 
 export default function Header() {
   const theme = useTheme();

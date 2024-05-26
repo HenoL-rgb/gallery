@@ -102,11 +102,11 @@ export default function Stories() {
         contentContainerStyle={styles.contentContainer}
         renderItem={renderUser}
       />
-      <Modal
-        visible={open.visible}
-        transparent
-        onRequestClose={handleClose}>
-        <Animated.View style={{paddingTop: top}} entering={entering} exiting={exiting}>
+      <Modal visible={open.visible} transparent onRequestClose={handleClose}>
+        <Animated.View
+          style={{paddingTop: top}}
+          entering={entering}
+          exiting={exiting}>
           <FlatList
             horizontal
             pagingEnabled

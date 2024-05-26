@@ -1,8 +1,8 @@
-import {View, Text, LayoutChangeEvent} from 'react-native';
-import React, {useRef, useState} from 'react';
 import {useTheme} from '@react-navigation/native';
+import {format, parseISO} from 'date-fns';
+import React, {useRef} from 'react';
+import {Text, View} from 'react-native';
 import {createStyles} from './styles';
-import { format, parseISO } from 'date-fns';
 
 interface PostDescriptionProps {
   username: string;

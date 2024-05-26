@@ -1,9 +1,9 @@
-import { useTheme } from '@react-navigation/native';
-import { Downloads } from '@shared/assets/icons';
-import { formatNumber } from '@shared/lib/formatNumber';
+import {useTheme} from '@react-navigation/native';
+import {Downloads} from '@shared/assets/icons';
+import {formatNumber} from '@shared/lib/formatNumber';
 import React from 'react';
-import { Text, View } from 'react-native';
-import { createStyles } from './styles';
+import {Text, View} from 'react-native';
+import {createStyles} from './styles';
 
 interface DownloadsProps {
   downloadsAmount: number;

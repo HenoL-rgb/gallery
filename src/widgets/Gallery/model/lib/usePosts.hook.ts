@@ -1,11 +1,10 @@
-import { useAppDispatch, useAppSelector } from '@app/providers/StoreProvider';
-import { RootState } from '@app/providers/StoreProvider/config/store';
-import { AxiosError } from 'axios';
-import { useEffect } from 'react';
-import { getPostsRequest } from '../services/getPosts.request';
-import { galleryActions } from '../slice/gallery.slice';
-import { PER_PAGE } from './constants';
-
+import {useAppDispatch, useAppSelector} from '@app/providers/StoreProvider';
+import {RootState} from '@app/providers/StoreProvider/config/store';
+import {AxiosError} from 'axios';
+import {useEffect} from 'react';
+import {getPostsRequest} from '../services/getPosts.request';
+import {galleryActions} from '../slice/gallery.slice';
+import {PER_PAGE} from './constants';
 
 export const usePosts = () => {
   const posts = useAppSelector((state: RootState) => state.gallerySlice.posts);
@@ -50,7 +49,7 @@ export const usePosts = () => {
       });
 
       if (page === 1) {
-        dispatch(galleryActions.setFullPosts(newPosts.data.slice(0, 10)))
+        dispatch(galleryActions.setFullPosts(newPosts.data.slice(0, 10)));
         dispatch(galleryActions.setPosts(mappedPosts));
         return;
       }
@@ -82,6 +81,6 @@ export const usePosts = () => {
     fetchMore,
     loading: isLoading,
     refreshing: isRefreshing || false,
-    error
+    error,
   };
 };

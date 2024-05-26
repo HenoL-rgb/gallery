@@ -1,14 +1,13 @@
-import { PostCard } from '@entities/Post';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import {PostCard} from '@entities/Post';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {
-    MainRouterParams,
-    MainRoutes,
+  MainRouterParams,
+  MainRoutes,
 } from '@shared/config/routeConfig/routeConfig';
 import React from 'react';
-import { Pressable } from 'react-native';
-import { GalleryPostCardProps } from '../model/types/types';
-import { styles } from './styles';
-
+import {Pressable} from 'react-native';
+import {GalleryPostCardProps} from '../model/types/types';
+import {styles} from './styles';
 
 type Navigation = NavigationProp<MainRouterParams>;
 

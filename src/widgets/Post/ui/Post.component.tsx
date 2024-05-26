@@ -1,5 +1,5 @@
 import {useAppDispatch, useAppSelector} from '@app/providers/StoreProvider';
-import {InteractivePhoto, postActions} from '@entities/Post';
+import {postActions} from '@entities/Post';
 import {DoubleTapPhoto, PostActions} from '@features/PostActions';
 import {AuthorCard} from '@shared/ui/AuthorCard';
 import {ErrorPage} from '@shared/ui/ErrorPage';
@@ -16,9 +16,6 @@ export default function Post({id}: PostProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const error = useAppSelector(state => state.postSlice.error);
   const dispatch = useAppDispatch();
-  useEffect(() => {
-    fetchPost(id);
-  }, []);
 
   const fetchPost = useCallback(async (id: string) => {
     try {
@@ -33,6 +30,10 @@ export default function Post({id}: PostProps) {
         dispatch(postActions.setError('Something went wrong :('));
       }
     }
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchPost(id);
   }, []);
 
   if (isLoading) {

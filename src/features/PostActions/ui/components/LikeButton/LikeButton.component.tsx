@@ -1,10 +1,10 @@
-import { useAppDispatch } from '@app/providers/StoreProvider';
-import { postActions } from '@entities/Post';
-import { useTheme } from '@react-navigation/native';
-import { Heart } from '@shared/assets/icons';
-import React, { useEffect, useState } from 'react';
-import { Pressable } from 'react-native';
-import Animated, { BounceIn } from 'react-native-reanimated';
+import {useAppDispatch} from '@app/providers/StoreProvider';
+import {postActions} from '@entities/Post';
+import {useTheme} from '@react-navigation/native';
+import {Heart} from '@shared/assets/icons';
+import React, {useEffect, useState} from 'react';
+import {Pressable} from 'react-native';
+import Animated, {BounceIn} from 'react-native-reanimated';
 
 interface LikeButtonProps {
   liked: boolean;
@@ -23,7 +23,7 @@ export default function LikeButton({liked, id}: LikeButtonProps) {
   }, []);
 
   function handleLike() {
-    if(!id) return;
+    if (!id) return;
 
     if (liked) {
       dispatch(postActions.setLike(false));

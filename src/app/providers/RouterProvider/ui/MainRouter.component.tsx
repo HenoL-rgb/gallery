@@ -1,13 +1,11 @@
-import {View, Text} from 'react-native';
-import React from 'react';
 import {TransitionPresets, createStackNavigator} from '@react-navigation/stack';
+import {HomeScreen} from '@screens/HomeScreen';
+import PostScreen from '@screens/PostScreen/ui/PostScreen.screen';
 import {
   MainRouterParams,
   MainRoutes,
 } from '@shared/config/routeConfig/routeConfig';
-import {HomeScreen} from '@screens/HomeScreen';
-import PostScreen from '@screens/PostScreen/ui/PostScreen.screen';
-import { PostHeader } from '@shared/ui/PostHeader';
+import React from 'react';
 
 const Stack = createStackNavigator<MainRouterParams>();
 

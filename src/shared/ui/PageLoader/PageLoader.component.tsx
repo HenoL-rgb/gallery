@@ -1,7 +1,7 @@
-import { useTheme } from '@react-navigation/native';
+import {useTheme} from '@react-navigation/native';
 import React from 'react';
-import { ActivityIndicator, View } from 'react-native';
-import { createStyles } from './styles';
+import {ActivityIndicator, View} from 'react-native';
+import {createStyles} from './styles';
 
 export default function PageLoader() {
   const theme = useTheme();

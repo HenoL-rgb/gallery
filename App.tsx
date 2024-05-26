@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { RouterProvider } from '@app/providers/RouterProvider';
-import { StoreProvider } from '@app/providers/StoreProvider';
-import { DarkTheme, DefaultTheme, Theme } from '@react-navigation/native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {RouterProvider} from '@app/providers/RouterProvider';
+import {StoreProvider} from '@app/providers/StoreProvider';
+import {DarkTheme, DefaultTheme, Theme} from '@react-navigation/native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import MainApp from './src/app/MainApp';
 
 export enum Themes {

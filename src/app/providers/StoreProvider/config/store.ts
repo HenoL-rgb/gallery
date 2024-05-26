@@ -1,6 +1,6 @@
-import { postSlice } from '@entities/Post';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { gallerySlice } from '@widgets/Gallery';
+import {postSlice} from '@entities/Post';
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import {gallerySlice} from '@widgets/Gallery';
 
 const rootReducer = combineReducers({
   gallerySlice,
@@ -9,12 +9,11 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => {
+  middleware: getDefaultMiddleware => {
     return getDefaultMiddleware({
       serializableCheck: false,
     });
   },
-
 });
 
 export type RootState = ReturnType<typeof store.getState>;

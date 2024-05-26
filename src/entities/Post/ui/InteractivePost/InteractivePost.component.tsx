@@ -1,6 +1,5 @@
 import {Image} from 'expo-image';
 import React from 'react';
-import {Dimensions} from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedStyle,

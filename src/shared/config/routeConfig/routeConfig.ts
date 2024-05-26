@@ -8,10 +8,9 @@ export type Route = {
   element: () => JSX.Element;
 };
 
-
 export type MainRouterParams = {
-    [MainRoutes.HOME]: undefined;
-    [MainRoutes.POST]: {
-      id: string;
-    };
-}
+  [MainRoutes.HOME]: undefined;
+  [MainRoutes.POST]: {
+    id: string;
+  };
+};

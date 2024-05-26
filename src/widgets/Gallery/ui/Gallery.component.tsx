@@ -1,12 +1,12 @@
-import { GalleryPostCard } from '@features/GalleryPostCard';
-import { useTheme } from '@react-navigation/native';
-import { ErrorPage } from '@shared/ui/ErrorPage';
+import {GalleryPostCard} from '@features/GalleryPostCard';
+import {useTheme} from '@react-navigation/native';
+import {ErrorPage} from '@shared/ui/ErrorPage';
 import React from 'react';
-import { ActivityIndicator, FlatList } from 'react-native';
-import { RefreshControl } from 'react-native-gesture-handler';
-import { COLUMNS_AMOUNT } from '../model/lib/constants';
-import { usePosts } from '../model/lib/usePosts.hook';
-import { styles } from './styles';
+import {ActivityIndicator, FlatList} from 'react-native';
+import {RefreshControl} from 'react-native-gesture-handler';
+import {COLUMNS_AMOUNT} from '../model/lib/constants';
+import {usePosts} from '../model/lib/usePosts.hook';
+import {styles} from './styles';
 
 export default function Gallery() {
   const {posts, fetchMore, refetch, loading, refreshing, error} = usePosts();

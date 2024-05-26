@@ -1,8 +1,8 @@
-import {View, Text, Pressable} from 'react-native';
-import React from 'react';
-import {ArrowLeft} from '@shared/assets/icons';
-import {createStyles} from './styles';
 import {useNavigation, useTheme} from '@react-navigation/native';
+import {ArrowLeft} from '@shared/assets/icons';
+import React from 'react';
+import {Pressable, View} from 'react-native';
+import {createStyles} from './styles';
 
 export default function PostHeader() {
   const theme = useTheme();

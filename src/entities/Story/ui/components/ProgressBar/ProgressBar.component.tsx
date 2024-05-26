@@ -1,20 +1,17 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
+import React, {useEffect} from 'react';
+import {View} from 'react-native';
 import Animated, {
   Easing,
   runOnJS,
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-  withTiming
+  withTiming,
 } from 'react-native-reanimated';
-import { ProgressBarProps } from '../../../model/types/types';
-import { styles } from './styles';
+import {ProgressBarProps} from '../../../model/types/types';
+import {styles} from './styles';
 
-export default function ProgressBar({
-  inView,
-  onFinish,
-}: ProgressBarProps) {
+export default function ProgressBar({inView, onFinish}: ProgressBarProps) {
   const progress = useSharedValue(0);
 
   useDerivedValue(() => {
@@ -31,7 +28,7 @@ export default function ProgressBar({
         easing: Easing.linear,
       });
     }
-  }, [inView]);
+  }, [inView, progress]);
 
   const rStyle = useAnimatedStyle(() => {
     return {
@@ -42,7 +39,7 @@ export default function ProgressBar({
   return (
     <View style={styles.wrapper}>
       <View style={styles.bg} />
-      <Animated.View style={[styles.progress, rStyle]}></Animated.View>
+      <Animated.View style={[styles.progress, rStyle]} />
     </View>
   );
 }

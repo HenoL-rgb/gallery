@@ -1,9 +1,9 @@
-import {View, Text, Pressable} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import {Image} from 'expo-image';
 import React, {PropsWithChildren} from 'react';
+import {Pressable, Text, View} from 'react-native';
 import {UserAvatarProps} from '../../../model/types/types';
 import {createStyles} from './styles';
-import {Image, ImageBackground} from 'expo-image';
-import {useTheme} from '@react-navigation/native';
 
 export default function UserAvatar({
   avatar,
@@ -35,7 +35,7 @@ export default function UserAvatar({
 
   return (
     <Pressable onPress={onClick} style={styles.bigWrapper}>
-      <View style={styles.borderWrapper}></View>
+      {border && <View style={styles.borderWrapper} />}
       <Image
         style={styles.image}
         placeholder={{blurhash}}
