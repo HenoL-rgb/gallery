@@ -30,3 +30,28 @@
 ```
 
 If everything settuped correctly, you should be able to see app running on emulator or physical device.
+
+## App features
+
+   ## Pagination
+
+![Pagination](./assets/gifs/pagination.gif)
+
+   ## Single post with likes on double tap
+
+![Post](./assets/gifs/post.gif)
+
+   ## Stories with auto scroll
+
+![Stories](./assets/gifs/stories.gif)
+
+   ## Theming
+
+![Theme](./assets/gifs/theme.gif)
+
+   ## Error handling examples
+
+![Gallery error](./assets/images/error_gallery.jpg)
+
+![Post error](./assets/images/error_post.jpg)
+
