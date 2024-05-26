@@ -23,6 +23,7 @@ export default function Story({
         style={styles.image}
         placeholder={{blurhash: photo.blur_hash}}
         source={{uri: photo.urls.regular}}
+        contentFit='cover'
       />
       <View style={styles.avatar}>
         <UserAvatar
