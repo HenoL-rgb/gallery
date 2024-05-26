@@ -73,6 +73,8 @@ const gallerySlice = createSlice({
     },
     setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
+      state.loading = false;
+      state.refreshing = false;
     },
     setFullPosts(state, action: PayloadAction<Photo[]>) {
       state.fullPosts = action.payload;
