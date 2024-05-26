@@ -17,20 +17,24 @@ export default function Post({id}: PostProps) {
   const error = useAppSelector(state => state.postSlice.error);
   const dispatch = useAppDispatch();
 
-  const fetchPost = useCallback(async (id: string) => {
-    try {
-      setIsLoading(true);
-      const post = await getPostByIdRequest({id});
-      dispatch(postActions.setPost(post.data));
-      setIsLoading(false);
-    } catch (e) {
-      if (e instanceof AxiosError) {
-        dispatch(postActions.setError(e.message));
-      } else {
-        dispatch(postActions.setError('Something went wrong :('));
+  const fetchPost = useCallback(
+    async (id: string) => {
+      try {
+        setIsLoading(true);
+        const post = await getPostByIdRequest({id});
+        dispatch(postActions.setPost(post.data));
+      } catch (e) {
+        if (e instanceof AxiosError) {
+          dispatch(postActions.setError(e.message));
+        } else {
+          dispatch(postActions.setError('Something went wrong :('));
+        }
+      } finally {
+        setIsLoading(false);
       }
-    }
-  }, [dispatch]);
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     fetchPost(id);
