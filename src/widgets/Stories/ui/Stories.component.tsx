@@ -1,19 +1,20 @@
-import { useAppSelector } from '@app/providers/StoreProvider';
-import { Photo } from '@entities/Post';
-import { Story, UserAvatar } from '@entities/Story';
-import React, { useCallback, useRef, useState } from 'react';
+import {useAppSelector} from '@app/providers/StoreProvider';
+import {Photo} from '@entities/Post';
+import {Story, UserAvatar} from '@entities/Story';
+import React, {useCallback, useRef, useState} from 'react';
 import {
   Dimensions,
   FlatList,
   GestureResponderEvent,
   Modal,
   View,
-  ViewToken
+  ViewToken,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { useAnimations } from '../model/lib/useAnimations.hook';
-import { ModalState } from '../model/types/types';
-import { styles } from './styles';
+import {useAnimations} from '../model/lib/useAnimations.hook';
+import {ModalState} from '../model/types/types';
+import {styles} from './styles';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const width = Dimensions.get('screen').width;
 
@@ -27,6 +28,7 @@ export default function Stories() {
 
   const [storyIndex, setStoryIndex] = useState<number>(0);
   const [viewedStories, setViewedStories] = useState<string[]>([]);
+  const {top} = useSafeAreaInsets();
 
   const {exiting, entering} = useAnimations({}, open.x, open.y);
 
@@ -100,8 +102,11 @@ export default function Stories() {
         contentContainerStyle={styles.contentContainer}
         renderItem={renderUser}
       />
-      <Modal visible={open.visible} transparent onRequestClose={handleClose}>
-        <Animated.View entering={entering} exiting={exiting}>
+      <Modal
+        visible={open.visible}
+        transparent
+        onRequestClose={handleClose}>
+        <Animated.View style={{paddingTop: top}} entering={entering} exiting={exiting}>
           <FlatList
             horizontal
             pagingEnabled

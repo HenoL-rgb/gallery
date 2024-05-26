@@ -12,18 +12,13 @@ export default function PostHeader() {
   return (
     <View style={styles.wrapper}>
       <Pressable
-        style={({pressed}) => [
-          styles.backButton,
-          {opacity: pressed ? 0.6 : 1},
-        ]}
-        onPress={() => navigation.goBack()}
-        >
+        style={({pressed}) => [styles.backButton, {opacity: pressed ? 0.6 : 1}]}
+        onPress={() => navigation.goBack()}>
         <ArrowLeft
           strokeWidth={1}
           width={20}
           height={20}
-          stroke="#ffffff"
-
+          stroke={theme.colors.text}
         />
       </Pressable>
     </View>

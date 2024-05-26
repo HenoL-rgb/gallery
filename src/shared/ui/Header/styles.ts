@@ -9,9 +9,13 @@ export const createStyles = (theme: Theme) =>
       alignItems: 'center',
     },
     text: {
-      fontFamily: 'Kanit-Italic',
       fontSize: 21,
       color: theme.colors.text,
       fontStyle: 'italic',
+    },
+    switcher: {
+      position: 'absolute',
+      alignSelf: 'flex-end',
+      right: 20
     },
   });

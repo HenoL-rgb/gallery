@@ -41,7 +41,7 @@ export default function PostDescription({
           )}
         </Text>
       </View>
-      <Text>{format(parseISO(createdAt), 'MMM d')}</Text>
+      <Text style={styles.tag}>{format(parseISO(createdAt), 'MMM d')}</Text>
     </View>
   );
 }

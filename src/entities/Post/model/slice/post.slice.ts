@@ -34,9 +34,9 @@ const postSlice = createSlice({
       if (!state.post) return;
 
       if (action.payload) {
-        state.post.liked_by_user = true;
-        state.post.likes += 1;
         if (!state.likes.includes(state.post.id)) {
+          state.post.liked_by_user = true;
+          state.post.likes += 1;
           state.likes.push(state.post.id);
         }
       } else {
